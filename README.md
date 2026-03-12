@@ -115,56 +115,6 @@ after = before + np.random.normal(loc=3, scale=5, size=30)
 5. Report the t-statistic and p-value.
 6. State your decision and interpretation.
 
-### Task 4: Normality Diagnostics
-
-Go back to **each** of the three scenarios above and check the normality assumption for the relevant data:
-
-1. **Q-Q plot:** Use `st.probplot(data, plot=plt)` to create a Q-Q plot. Comment on whether the points follow the reference line.
-2. **Shapiro-Wilk test:** Run `st.shapiro(data)` and report the W-statistic and p-value.
-3. In a Markdown cell for each scenario, answer: "Does the normality assumption appear to hold? Why or why not?"
-
-Present the three Q-Q plots as a 1 × 3 subplot figure for easy comparison.
-
-### Task 5: Permutation Test
-
-Choose **one** of the three scenarios (the two-sample scenario works best here) and implement a permutation test:
-
-1. Write a function:
-
-```python
-def permutation_test(group1, group2, n_perm=10_000):
-    """
-    Returns an empirical two-tailed p-value for the
-    difference in means.
-    """
-```
-
-2. Inside the function:
-   - Compute the observed difference in means.
-   - Pool both groups into one array.
-   - For each permutation, shuffle the pooled array, split into two groups of the original sizes, and compute the difference in means.
-   - The p-value is the proportion of permutation differences at least as extreme as the observed difference (two-tailed).
-3. Run the function and report the permutation p-value.
-4. Create a histogram of the permutation distribution with a vertical line at the observed difference.
-
-### Task 6: Compare Results and Write Structured Findings
-
-Create a summary table with columns: `Scenario`, `Test`, `Statistic`, `p-value`, `Decision (α = 0.05)`.
-
-Include:
-- The three classical t-tests (Tasks 1–3)
-- The permutation test (Task 5)
-
-In a Markdown cell below the table, write a **structured findings paragraph** for each scenario using this template:
-
-> **Test used:** [name of test]
-> **Test statistic:** t = [value] (or permutation diff = [value])
-> **p-value:** [value]
-> **Decision:** Reject / Fail to reject H₀ at α = 0.05
-> **Interpretation:** [1–2 plain-language sentences explaining what this means in the real-world context]
-
-Finally, answer: "For the two-sample scenario, did the classical t-test and the permutation test agree? If not, what might explain the discrepancy?"
-
 ## Submission
 
 ### What to submit
@@ -175,10 +125,7 @@ Finally, answer: "For the two-sample scenario, did the classical t-test and the 
 
 - [ ] One-sample, two-sample, and paired t-tests correctly implemented and interpreted
 - [ ] Levene's test used to decide between equal-variance and Welch's t-test
-- [ ] Q-Q plots and Shapiro-Wilk tests produced for all three scenarios
-- [ ] Permutation test implemented from scratch with histogram of permutation distribution
-- [ ] Summary comparison table includes all four tests
-- [ ] Structured findings paragraphs written for each scenario
+- [ ] Each task includes hypotheses, test result, and plain-language interpretation
 - [ ] Notebook runs top-to-bottom without errors (`Kernel → Restart & Run All`)
 
 ### How to submit (Git workflow)
